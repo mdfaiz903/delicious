@@ -1,10 +1,11 @@
 from django.shortcuts import render
-
+from . models import sliderModel
 # Create your views here.
 
 
 def homeview(request):
-    return render(request,'delicious/index.html')
+    slider = sliderModel.objects.all().order_by('-id')[:3]
+    return render(request,'delicious/index.html',{'slider':slider})
 
 
 def aboutView(request):
