@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'delicious.context_processors.sld_context',
+                'delicious.context_processors.ContactView',
             ],
         },
     },

@@ -22,7 +22,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms">{{slide.title}}</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">{{slide.description}}</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <a href="{% url 'receipeView' %}" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="top-cta-content">
                             <h3>Strawberry Cake</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="{% url 'receipeView' %}" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="top-cta-content">
                             <h3>Chinesse Noodles</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="{% url 'receipeView' %}" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
