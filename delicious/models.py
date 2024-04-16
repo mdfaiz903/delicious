@@ -18,3 +18,19 @@ class ContactModel(models.Model):
     def __str__(self):
         return self.name
     
+class BlogCategory(models.Model):
+    title = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return self.title
+class BlogPost(models.Model):
+    image = models.ImageField(upload_to='blog_img/')
+    title = models.CharField(max_length=150)
+    description = models.TextField()
+    category = models.ForeignKey(BlogCategory,on_delete=models.CASCADE)
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    

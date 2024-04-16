@@ -28,64 +28,30 @@
                     <div class="blog-posts-area">
 
                         <!-- Single Blog Area -->
+                        {% for item in items %}
+                          
+                   
                         <div class="single-blog-area mb-80">
                             <!-- Thumbnail -->
                             <div class="blog-thumbnail">
-                                <img src="{% static 'img/blog-img/1.jpg'%}" alt="">
+                                <img src="{{item.image.url}}" alt="">
                                 <!-- Post Date -->
                                 <div class="post-date">
-                                    <a href="#"><span>05</span>April <br> 2018</a>
+                                    <a href="#"><span style="font-size: 20px !important;">{{item.created_at}}</span></a>
+                                    
                                 </div>
                             </div>
                             <!-- Content -->
                             <div class="blog-content">
-                                <a href="#" class="post-title">How to find amazing restaurants in your city</a>
-                                <div class="meta-data">by <a href="#">Maria Williams</a> in <a href="#">Restaurants</a>
+                                <a href="#" class="post-title">{{item.title}}</a>
+                                <div class="meta-data">by <a href="#">{{user.username}}</a> in <a href="#">{{item.category}} </a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <a href="#" class="btn delicious-btn mt-30">Read More</a>
+                                <p>{{item.description | truncatewords_html:30}} </p>
+                                <a href="{% url 'blog_details' item.id %}" class="btn delicious-btn mt-30">Read More</a>
                             </div>
                         </div>
-
-                        <!-- Single Blog Area -->
-                        <div class="single-blog-area mb-80">
-                            <!-- Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <img src="{% static 'img/blog-img/2.jpg'%}" alt="">
-                                <!-- Post Date -->
-                                <div class="post-date">
-                                    <a href="#"><span>05</span>April <br> 2018</a>
-                                </div>
-                            </div>
-                            <!-- Content -->
-                            <div class="blog-content">
-                                <a href="#" class="post-title">10 tips to live a healty life</a>
-                                <div class="meta-data">by <a href="#">Maria Williams</a> in <a href="#">Restaurants</a>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <a href="#" class="btn delicious-btn mt-30">Read More</a>
-                            </div>
-                        </div>
-
-                        <!-- Single Blog Area -->
-                        <div class="single-blog-area mb-80">
-                            <!-- Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <img src="{% static 'img/blog-img/3.jpg'%}" alt="">
-                                <!-- Post Date -->
-                                <div class="post-date">
-                                    <a href="#"><span>05</span>April <br> 2018</a>
-                                </div>
-                            </div>
-                            <!-- Content -->
-                            <div class="blog-content">
-                                <a href="#" class="post-title">5 Tips on how to cook the best hamburger</a>
-                                <div class="meta-data">by <a href="#">Maria Williams</a> in <a href="#">Restaurants</a>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <a href="#" class="btn delicious-btn mt-30">Read More</a>
-                            </div>
-                        </div>
+                        {% endfor %}
+     
 
                     </div>
 
@@ -117,11 +83,14 @@
                         <div class="single-widget mb-80">
                             <h6>Categories</h6>
                             <ul class="list">
-                                <li><a href="#">Restaurants</a></li>
-                                <li><a href="#">Food &amp; Drinks</a></li>
+                                {% for item in blog_items %}
+                                  
+                                <li><a href="#">{{item.title}}</a></li>
+                                {% endfor %}
+                                <!-- <li><a href="#">Food &amp; Drinks</a></li>
                                 <li><a href="#">Vegans</a></li>
                                 <li><a href="#">Events &amp; Lifestyle</a></li>
-                                <li><a href="#">Uncategorized</a></li>
+                                <li><a href="#">Uncategorized</a></li> -->
                             </ul>
                         </div>
 

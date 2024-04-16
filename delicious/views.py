@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from . models import sliderModel
+from . models import sliderModel,BlogPost,BlogCategory
 from . forms import ContactForm
+
 # Create your views here.
 
 
@@ -25,7 +26,18 @@ def aboutView(request):
 
     return render(request,'delicious/about.html')
 def blogView(request):
-    return render(request,'delicious/blog-post.html')
+    queryset = BlogPost.objects.all()
+    blog_item = BlogCategory.objects.all()
+
+    context = {
+        'items':queryset,
+        'blog_items':blog_item
+    }
+    return render(request,'delicious/blog-post.html',context)
+def blog_details(request,id):
+    post = BlogPost.objects.get(id=id)
+
+    return render(request,'delicious/blog-details.html',{'post':post})
 def receipeView(request):
     return render(request,'delicious/receipe-post.html')
 def contactView(request):
