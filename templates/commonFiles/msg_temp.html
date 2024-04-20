@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi,{{request.user.username}}
+You have Successfully Submite your message,Thanks for messageing...
+Now to home page
+http://{{domain}}{% url 'home'  %}
+
+
+{% endautoescape %}
