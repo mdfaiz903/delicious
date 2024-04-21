@@ -1,0 +1,38 @@
+
+
+
+
+{% extends "../commonFiles/base.html" %}
+{% block title %}
+  about us
+{% endblock title %}
+{% load static %}
+
+{% block content %}
+  {% include '../commonFiles/header.html' %}
+
+  {% for p in result %}
+  <div class="container my-2">
+      <div class="card">
+          <div class="media card-body">
+  
+  
+              <div class="media-body">
+                  <a href="{% url 'receipeViewdetails' p.id %}">
+                      <h5 class="mt-0">{{ p.title }}</h5>
+                  </a>
+                <!-- <p>{{ p.content.post_set |truncatewords_html:10  }} <a href="{% url 'receipeViewdetails' p.id %}">...Red more</a></p> -->
+              </div>
+  
+  
+  
+  
+            </div>
+      </div>
+  </div>
+  {% endfor %}
+
+
+    {% include '../commonFiles/insta.html' %}
+    {% include '../commonFiles/footer.html' %}
+    {% endblock content %}

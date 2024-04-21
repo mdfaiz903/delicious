@@ -86,7 +86,7 @@
                     
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <img src="{{item.receipe_post_set.last.image.url}}" alt="">
+                        <img style="height: 300px; width: 350px;" src="{{item.receipe_post_set.last.image.url}}" alt="">
                         <div class="receipe-content">
                             <a href="{% url 'receipeViewdetails' item.id %}">
                                 <h5>{{item.title}}</h5>
@@ -141,7 +141,7 @@
                         <!-- Receipe Thumb -->
                         <div class="receipe-thumb">
                               
-                                    <img src="{{item.receipe_post_set.first.image.url }}" alt="Recipe Image">
+                                    <img style="width: 70px; height: 80px;" src="{{item.receipe_post_set.first.image.url }}" alt="Recipe Image">
                                                      </div>
                         <!-- Receipe Content -->
                         <div class="receipe-content">

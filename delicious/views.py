@@ -3,8 +3,24 @@ from . models import sliderModel,BlogPost,BlogCategory,ReceipePost,ReceipeImage,
 from . forms import ContactForm,FeedbackForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.db.models import Q 
 # Create your views here.
+def searchView(request):
+    if request.method=='POST':
+        search_input = request.POST.get('search','')
+        if search_input:
+            result = ReceipePost.objects.filter(
+                (Q(title__icontains=search_input)) | (Q(content__post_set__icontains=search_input))
+            ).distinct()
+        else:
+            result = []
+            return HttpResponse("<h1>No search input provided.</h1>")
 
+
+        context={
+            'result':result
+        } 
+    return render(request,'post/search.html',context)
 
 def homeview(request):
     slider = sliderModel.objects.all().order_by('-id')[:3]
